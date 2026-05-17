@@ -4,9 +4,10 @@ use soroban_sdk::{contracttype, Address};
 #[contracttype]
 #[derive(Clone)]
 pub enum InvoiceStatus {
-    Pending,
+    Draft,
+    Issued,
     Paid,
-    Cancelled,
+    Overdue,
 }
 
 #[contracttype]
