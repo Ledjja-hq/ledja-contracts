@@ -13,5 +13,5 @@ jobs:
       - name: Install Rust
         uses: dtolnay/rust-toolchain@stable
         with:
-          targets: wasm32-unknown-unknown
-      - run: cargo build --target wasm32-unknown-unknown --release
+          targets: wasm32v1-none
+      - run: cargo build --target wasm32v1-none --release
