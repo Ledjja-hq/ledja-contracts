@@ -1,0 +1,1 @@
+// Expense contract — placeholder
