@@ -19,3 +19,12 @@ pub struct Invoice {
     pub due_date: u64,
     pub status: InvoiceStatus,
 }
+
+#[contracttype]
+#[derive(Clone)]
+pub struct PayrollRecord {
+    pub recipient: Address,
+    pub amount: i128,
+    pub frequency_days: u64,
+    pub last_paid: u64,
+}
