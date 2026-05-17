@@ -40,3 +40,11 @@ pub struct Expense {
     pub timestamp: u64,
     pub linked_invoice_id: Option<u64>,
 }
+
+#[contracttype]
+#[derive(Clone)]
+pub struct InventoryItem {
+    pub sku: Symbol,
+    pub quantity: i128,
+    pub linked_invoice_id: Option<u64>,
+}
