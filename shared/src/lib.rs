@@ -1,6 +1,21 @@
 #![no_std]
-use soroban_sdk as _;
+use soroban_sdk::{contracttype, Address};
 
-// Types — shared data structs (e.g. Invoice, PayrollEntry)
-// Enums — shared status enums (e.g. InvoiceStatus)
-// Errors — shared error codes across contracts
+#[contracttype]
+#[derive(Clone)]
+pub enum InvoiceStatus {
+    Pending,
+    Paid,
+    Cancelled,
+}
+
+#[contracttype]
+#[derive(Clone)]
+pub struct Invoice {
+    pub id: u64,
+    pub seller: Address,
+    pub buyer: Address,
+    pub amount: i128,
+    pub due_date: u64,
+    pub status: InvoiceStatus,
+}
