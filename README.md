@@ -35,7 +35,7 @@
 > cargo install --locked soroban-cli
 > git clone https://github.com/Ledjja-hq/ledja-contracts.git
 > cd ledja-contracts
-> cargo build --target wasm32-unknown-unknown --release
+> cargo build --target wasm32v1-none --release
 > cargo test
 > ```
 >
