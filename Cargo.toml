@@ -7,3 +7,6 @@ members = [
     "shared",
 ]
 resolver = "2"
+
+[workspace.dependencies]
+soroban-sdk = { version = "26.0.0", features = ["alloc"] }
