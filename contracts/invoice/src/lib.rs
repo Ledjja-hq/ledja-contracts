@@ -1,6 +1,6 @@
 #![no_std]
+use shared::{InvoiceStatus, LedjaError};
 use soroban_sdk::{contract, contractimpl, Env};
-use shared::InvoiceStatus;
 
 #[contract]
 pub struct InvoiceContract;
