@@ -1,13 +1,31 @@
-#![no_std]
-use shared::{InvoiceStatus, LedjaError};
-use soroban_sdk::{contract, contractimpl, Env};
+// shared/src/lib.rs
+use soroban_sdk::{contracttype, Address};
 
-#[contract]
-pub struct InvoiceContract;
+#[contracttype]
+#[derive(Clone, PartialEq)]
+pub enum InvoiceStatus {
+    Draft,
+    Sent,
+    Paid,
+    Cancelled,
+}
 
-#[contractimpl]
-impl InvoiceContract {
-    pub fn default_status(_env: Env) -> InvoiceStatus {
-        InvoiceStatus::Draft
-    }
+#[contracttype]
+#[derive(Clone)]
+pub struct Invoice {
+    pub id: u64,
+    pub seller: Address,
+    pub buyer: Address,
+    pub amount: i128,
+    pub due_date: u64,
+    pub status: InvoiceStatus,
+}
+
+#[contracttype]
+#[derive(Clone, Debug, PartialEq)]
+pub enum LedjaError {
+    InvalidAmount,
+    InvalidDueDate,
+    SellerBuyerConflict,
+    InvoiceNotFound,
 }
