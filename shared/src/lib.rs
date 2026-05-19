@@ -1,5 +1,16 @@
 #![no_std]
-use soroban_sdk::{contracttype, Address, Symbol};
+use soroban_sdk::{contracterror, contracttype, Address, Symbol};
+
+#[contracterror]
+#[derive(Copy, Clone, Debug, Eq, PartialEq)]
+pub enum LedjaError {
+    Unauthorized = 1,
+    InvalidAmount = 2,
+    InvalidDate = 3,
+    NotFound = 4,
+    AlreadyExists = 5,
+    InvalidAddress = 6,
+}
 
 #[contracttype]
 #[derive(Clone)]
